@@ -70,6 +70,14 @@ function SaveData() {
     LoadData(characters);
 }
 
+function AddRow(){
+  let editRow =
+        '<div class="row char form-group"><div class="col"> <input type="text" class="form-control" value=""/></div><div class="col"><input type="number" value="" class="form-control" /></div></div>';
+  $("#EditData").append(editRow);
+}
+function DelRow(){
+  $("#EditData").children().last().remove();
+}
 function RollObligation() {
   clearStyles();
   var roll = Math.floor(Math.random() * 100) + 1;
