@@ -1,153 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
 
-    <title>Fantasy Flight Games Star Wars Edge of he Empire Fantasy Roleplaying System Obligation Check tool!</title>
-    <link rel="stylesheet" href="./css/site.css">
+    <title>
+      Fantasy Flight Games Star Wars Edge of he Empire Fantasy Roleplaying
+      System Obligation Check tool!
+    </title>
+    <link rel="stylesheet" href="./css/site.css" />
     <script src="./js/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-</head>
-<body>
-
-
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li><a class="nav-link" data-toggle="tab" href="#Main">Main</a></li>
-        <li><a class="nav-link active" data-toggle="tab" href="#Update">Update</a></li>
-    </ul>
-
-    <div class="tab-content">
-        <div id="Main" class="tab-pane">
-            <h1>Obligation Roll<span id="roll"></span></h1>
-            <table id="CharTable" class="table table-striped table-hover">
-                <thead>
-                <tr>
-                    <th>Character Name</th>
-                    <th>Obligation Total</th>
-                    <th>Obligation Range</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-            <h4 id="Message">Feeling Lucky?</h4>
-            <button onclick="RollObligation()" class="btn btn-primary">Roll The Fantasy Flight Games Star Wars Edge of
-                the
-                Empire Fantasy Roleplaying System Obligation Check
-            </button>
-        </div>
-
-
-        <div id="Update" class="tab-pane active">
-            <h1>Update Obligation Data</h1>
-            <div id="EditData">
-                <div class="form-group"><input type="text" value="Buswarr" class="form-control col-xs-4" /> <input type="number" class="form-control col-xs-4" value="10" /></div>
-
-            </div>
-            <button onclick="RollObligation()" class="btn btn-primary">Save Changes</button>
-        </div>
-    </div>
-</div>
-
-<footer class="border-top footer text-muted">
+    <script src="./js/site.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
     <div class="container">
-        &copy; 2019 - Peppertown is Canon
+      <ul class="nav nav-tabs">
+        <li>
+            <a class="nav-link " data-toggle="tab" href="#Main">Main</a>
+        </li>
+        <li>
+          <a class="nav-link active" data-toggle="tab" href="#Update">Update</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="Main" class="tab-pane">
+          <h1>Obligation Roll<span id="roll"></span></h1>
+          <table id="CharTable" class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Character Name</th>
+                <th>Obligation Total</th>
+                <th>Obligation Range</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <h4 id="Message">Feeling Lucky?</h4>
+          <button onclick="RollObligation()" class="btn btn-primary btn-lg btn-block">
+                Roll The Fantasy Flight Games 
+                Star Wars 
+                Edge of the Empire 
+                Fantasy Roleplaying System 
+                Obligation Check
+          </button>
+        </div>
+
+        <div id="Update" class="tab-pane active ">
+          <h1>Update Obligation Data</h1>
+          <div id="EditData">
+        </div> 
+        <button onclick="SaveData()" class="btn btn-primary">
+            Save Changes
+        </button>
+      </div>
     </div>
-</footer>
 
-<script type="text/javascript">
+    <footer class="border-top footer text-muted">
+      <div class="container">
+        &copy; 2019 - Peppertown is Canon
+      </div>
+    </footer>
 
-    function shuffle(sourceArray) {
-        for (var i = 0; i < sourceArray.length - 1; i++) {
-            var j = i + Math.floor(Math.random() * (sourceArray.length - i));
-
-            var temp = sourceArray[j];
-            sourceArray[j] = sourceArray[i];
-            sourceArray[i] = temp;
-        }
-        return sourceArray;
-    }
-
-    $(document).ready(function () {
-        $.getJSON('./data/data.json', function (data) {
-            LoadData(data);
-        });
-    });
-
-    function LoadData(data) {
-        let totalCurrentObligation = 0;
-        $.each(shuffle(data), function (key, value) {
-            if (value != undefined) {
-                let characterName = value.CharacterName;
-                let characterObligation = value.Obligation;
-                let obligationStart = totalCurrentObligation + 1;
-                let obligationEnd = totalCurrentObligation + characterObligation;
-                totalCurrentObligation += characterObligation;
-                let row = '<tr id="' + characterName + '"> <td> <input type="hidden" id="ObligationStart" value="' + obligationStart + '"/> <input type="hidden" id="ObligationEnd" value="' + obligationEnd + '"/>' + characterName + '</td> <td>' + characterObligation + '</td> <td>' + obligationStart + ' - ' + obligationEnd + '</td> </tr>';
-                // let editRow = '<row id="' + characterName + '"> ' +
-                //     '<input id="' + characterName + '" value="' + characterName + '" />' +
-                //     '';
-                $("#CharTable").append(row)
-            }
-        })
-    }
-    function RollObligation() {
-        clearStyles()
-        var roll = Math.floor(Math.random() * 100) + 1;
-        var obligationTriggered = false;
-        $('#CharTable > tbody  > tr').each(function () {
-            var start = $(this).find("#ObligationStart").val();
-            var end = $(this).find("#ObligationEnd").val();
-            if (roll >= start && roll <= end) {
-                obligationTriggered = true;
-                if (isCritical(roll)) {
-                    var Name = $(this).attr('id');
-                    if (name == "MJ-12") {
-                        $("#Message").text(Name + " has a CRITICAL Toebligation!");
-                    } else {
-                        $("#Message").text(Name + " has a CRITICAL Obligation!");
-                    }
-                    $(this).addClass("table-danger");
-                } else {
-                    $("#Message").text($(this).attr('id') + " has Obligation!");
-                    $(this).addClass("table-warning");
-                }
-            }
-        });
-        if (obligationTriggered == false) {
-            $("#Message").text("Safe!");
-        }
-        ;
-        $("#roll").text(": " + roll)
-    };
-
-    function clearStyles() {
-        $('#CharTable > tbody  > tr').each(function () {
-            $(this).removeClass("table-warning");
-            $(this).removeClass("table-danger");
-        });
-    }
-
-
-    function isCritical(roll) {
-        if (roll == 11 || roll == 22 || roll == 33 || roll == 44 || roll == 55 || roll == 66 || roll == 77 || roll == 88 || roll == 99) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-</script>
-</body>
+  </body>
 </html>
